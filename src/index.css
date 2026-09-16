@@ -1,4 +1,67 @@
 @import "tailwindcss";
 
 @theme {
+  --color-primary: #1b1d1f;
+  --color-secondary: #282b30;
+  --color-skeleton: #6c727f;
+  --color-text: #d2d5da;
+  --color-checkbox-accent: #4e80ee;
+  --font-be-vietnam-pro: "Be Vietnam Pro", sans-serif;
+  --spacing-base: 1rem;
+  --spacing-sm: 0.875rem;
+  --spacing-xs: 0.75rem;
+  --spacing-2xs: 0.5rem;
+  --spacing-3xs: 0.25rem;
+}
+
+/* text-style-classname */
+
+@utility text-semibold-2 {
+  @apply text-[2rem] font-semibold;
+}
+
+@utility text-semibold-1 {
+  @apply text-base font-semibold;
+}
+
+@utility text-medium-1 {
+  @apply text-base font-medium;
+}
+
+@utility text-bold-0.875 {
+  @apply text-sm font-bold;
+}
+
+@utility text-medium-0.875 {
+  @apply text-sm font-medium;
+}
+
+@utility text-bold-0.75 {
+  @apply text-xs font-bold;
+}
+
+@utility text-medium-0.75 {
+  @apply text-xs font-medium;
+}
+
+/*  */
+
+@utility bg-p-rounded {
+  @apply p-2xs bg-secondary rounded-lg;
+}
+
+@utility border-rounded {
+  @apply border-secondary rounded-lg border-2;
+}
+
+/*  */
+
+@utility main-style {
+  @apply bg-primary border-rounded p-xs relative -top-5 w-[95%] sm:-top-10;
+}
+
+/*  */
+
+@utility flex-row-items-center {
+  @apply flex items-center;
 }
