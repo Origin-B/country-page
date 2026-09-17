@@ -6,7 +6,7 @@ import CountryContainer from "./CountryContainer";
 import CountrySkeleton from "./CountrySkeleton";
 
 export default function CountriesTable() {
-  const { countries } = useCountries();
+  const { filteredCountries } = useCountries();
 
   return (
     <section className="gap-base flex flex-col lg:col-span-2">
@@ -19,11 +19,11 @@ export default function CountriesTable() {
       </div>
 
       <div className="gap-sm scrollbar-thumb-secondary flex max-h-300 scrollbar-thin flex-col overflow-y-auto">
-        {countries.length === 0
+        {filteredCountries.length === 0
           ? Array.from({ length: 25 }).map((_, i) => (
               <CountrySkeleton key={i} />
             ))
-          : countries.map((country) => (
+          : filteredCountries.map((country) => (
               <CountryContainer
                 key={`${country.numericCode}`}
                 country={country}

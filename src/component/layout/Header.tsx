@@ -10,7 +10,7 @@ export default function Header() {
       <img
         src="/images/Logo.svg"
         alt="world ranks logo"
-        className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 md:w-1/5"
       />
     </header>
   );

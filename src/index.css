@@ -56,8 +56,8 @@
 
 /*  */
 
-@utility main-style {
-  @apply bg-primary border-rounded p-xs relative -top-5 w-[95%] sm:-top-10;
+@utility relative-style {
+  @apply bg-primary border-rounded relative -top-3 sm:-top-10;
 }
 
 /*  */

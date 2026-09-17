@@ -16,12 +16,12 @@ interface Country {
   alpha2Code: Str;
   alpha3Code: Str;
   altSpellings: Str[];
-  area: Num;
-  borders: Str[];
+  area: Num | undefined;
+  borders: Str[] | undefined;
   callingCodes: Str[];
-  capital: Str;
+  capital: Str | undefined;
   cioc: Str;
-  currencies: currency[];
+  currencies: currency[] | undefined;
   demonym: Str;
   flag: Str;
   flags: {
@@ -72,16 +72,19 @@ type Filter = {
   status: Str;
 };
 
+type Details = { id: number; title: string; value: string };
+
 type Region = {
   id: Num;
   region: Str;
 };
+
 type Sort = {
   id: Num;
   sort: Str;
 };
 
-export { type Filter, type Country };
+export { type Filter, type Country, type Details };
 
 // data
 

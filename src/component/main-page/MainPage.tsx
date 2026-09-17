@@ -4,7 +4,7 @@ import SearchFilter from "./SearchFilter";
 
 export default function MainPage() {
   return (
-    <main className="main-style grid gap-[1rem_2rem] lg:grid-cols-[repeat(3,1fr)] lg:grid-rows-[auto_1fr]">
+    <main className="relative-style p-xs grid w-[95%] gap-[1rem_2rem] lg:grid-cols-[repeat(3,1fr)] lg:grid-rows-[auto_1fr]">
       <SearchFilter />
       <FilterFrom />
       <CountriesTable />

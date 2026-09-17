@@ -15,6 +15,7 @@ const countriesContext = createContext<{
     value: string,
   ) => void;
   countries: Country[];
+  filteredCountries: Country[];
 }>({
   filter: {
     query: "",
@@ -25,6 +26,7 @@ const countriesContext = createContext<{
 
   handelFilter: () => console.log(),
   countries: [],
+  filteredCountries: [],
 });
 
 export default function CountriesContextProvider({
@@ -35,7 +37,7 @@ export default function CountriesContextProvider({
   const [filter, setFilter] = useState<Filter>({
     query: "",
     regions: [],
-    sort: "",
+    sort: "population",
     status: "",
   });
 
@@ -80,32 +82,36 @@ export default function CountriesContextProvider({
     fetchCountries();
   }, []);
 
-  // const filteredCountries = useMemo(() => {
-  //   const { query, regions, sort, status } = filter;
+  const filteredCountries = useMemo(() => {
+    const { query, regions, sort, status } = filter;
 
-  //   if (!countries) return [];
-  //   return countries
-  //     .filter((country) =>
-  //       query === ""
-  //         ? true
-  //         : country.name.includes(query.toLowerCase().trim()) ||
-  //           country.subregion.includes(query.toLowerCase().trim()) ||
-  //           country.region.includes(query.toLowerCase().trim()),
-  //     )
-  //     .filter((country) =>
-  //       regions.length === 0 ? true : regions.some((r) => r === country.region),
-  //     )
-  //     .filter((country) =>
-  //       status === ""
-  //         ? true
-  //         : status === "independent"
-  //           ? country.independent
-  //           : !country.independent,
-  //     );
-  // }, [filter, countries]);
+    if (!countries) return [];
+    return countries
+      .filter((country) =>
+        query === ""
+          ? true
+          : country.name.toLowerCase().includes(query.toLowerCase().trim()) ||
+            country.subregion
+              .toLowerCase()
+              .includes(query.toLowerCase().trim()) ||
+            country.region.toLowerCase().includes(query.toLowerCase().trim()),
+      )
+      .filter((country) =>
+        regions.length === 0 ? true : regions.some((r) => r === country.region),
+      )
+      .filter((country) =>
+        status === ""
+          ? true
+          : status === "independent"
+            ? country.independent
+            : !country.independent,
+      );
+  }, [filter, countries]);
 
   return (
-    <countriesContext.Provider value={{ filter, handelFilter, countries }}>
+    <countriesContext.Provider
+      value={{ filter, handelFilter, countries, filteredCountries }}
+    >
       {children}
     </countriesContext.Provider>
   );
