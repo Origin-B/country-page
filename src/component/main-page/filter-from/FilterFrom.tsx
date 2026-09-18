@@ -32,7 +32,7 @@ export default function FilterFrom() {
             onClick={() => setActive(!active)}
             aria-label="click to open sort menu"
           >
-            <span>{filter.sort}</span>
+            <span className="text-medium-1 capitalize">{filter.sort}</span>
 
             <ExpandDown
               className={`${active && "rotate-180"} transition-transform`}
@@ -48,7 +48,7 @@ export default function FilterFrom() {
                   <button
                     aria-label={`click to sort with ${s.sort}`}
                     onClick={() => handelFilter("sort", s.sort)}
-                    className={`${filter.sort !== s.sort && "text-text/50"} text-start`}
+                    className={`${filter.sort !== s.sort && "text-text/50"} text-start capitalize`}
                   >
                     {s.sort}
                   </button>
@@ -67,7 +67,7 @@ export default function FilterFrom() {
                 <button
                   aria-label={`click to add or remove ${r.region} to region filter`}
                   onClick={() => handelFilter("regions", r.region)}
-                  className={`${filter.regions.some((region) => region === r.region) && "bg-secondary"} rounded-xl p-2`}
+                  className={`${filter.regions.some((region) => region === r.region) && "bg-secondary"} cursor-pointer rounded-xl p-2 transition-colors hover:outline-2`}
                 >
                   {r.region}
                 </button>

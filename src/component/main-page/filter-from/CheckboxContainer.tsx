@@ -15,20 +15,20 @@ export default function CheckboxContainer({
 
   return (
     <button
-      className="flex-row-items-center gap-2xs w-fit text-start"
+      className="flex-row-items-center gap-sm w-fit text-start"
       aria-label={`click to make status ${title}`}
       onClick={() => handelFilter("status", id)}
     >
       <span
         id={id}
-        className={`${filter.status === id && "bg-checkbox-accent"} border-text rounded-md border-2 transition-colors`}
+        className={`${filter.status === id ? "bg-checkbox-accent border-checkbox-accent" : "border-text"} rounded-md border-2 transition-colors`}
       >
         <DoneRound
           className={`${filter.status === id ? "opacity-100" : "opacity-0"} opacity-0 transition-opacity`}
         />
       </span>
 
-      <p>{title}</p>
+      <p className="text-medium-1">{title}</p>
     </button>
   );
 }

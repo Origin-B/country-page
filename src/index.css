@@ -14,8 +14,6 @@
   --spacing-3xs: 0.25rem;
 }
 
-/* text-style-classname */
-
 @utility text-semibold-2 {
   @apply text-[2rem] font-semibold;
 }
@@ -44,8 +42,6 @@
   @apply text-xs font-medium;
 }
 
-/*  */
-
 @utility bg-p-rounded {
   @apply p-2xs bg-secondary rounded-lg;
 }
@@ -54,14 +50,14 @@
   @apply border-secondary rounded-lg border-2;
 }
 
-/*  */
-
 @utility relative-style {
   @apply bg-primary border-rounded relative -top-3 sm:-top-10;
 }
 
-/*  */
-
 @utility flex-row-items-center {
   @apply flex items-center;
+}
+
+@utility grid-style {
+  @apply gap-base grid grid-cols-[0.5fr_1fr] grid-rows-1 items-center sm:grid-cols-[0.5fr_repeat(3,1fr)] xl:grid-cols-[0.5fr_repeat(4,1fr)];
 }

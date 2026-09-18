@@ -105,8 +105,16 @@ export default function CountriesContextProvider({
           : status === "independent"
             ? country.independent
             : !country.independent,
+      )
+      .sort((a, b) =>
+        sort === "population"
+          ? b.population - a.population
+          : Number(b.area) - Number(a.area),
       );
   }, [filter, countries]);
+
+  console.log(countries.map((c) => c.flag));
+  console.log(countries.map((c) => c.flags));
 
   return (
     <countriesContext.Provider

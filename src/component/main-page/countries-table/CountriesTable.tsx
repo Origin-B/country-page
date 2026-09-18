@@ -10,7 +10,7 @@ export default function CountriesTable() {
 
   return (
     <section className="gap-base flex flex-col lg:col-span-2">
-      <div className="border-secondary text-medium-0.875 flex justify-between border-b-2 py-4 *:w-1/2 *:sm:w-1/4 *:xl:w-1/5">
+      <div className="border-secondary grid-style text-bold-0.75 border-b-2 py-4">
         <span>Flag</span>
         <span>Name</span>
         <span className="hidden sm:block">Population</span>

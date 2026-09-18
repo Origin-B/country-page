@@ -1,10 +1,12 @@
 // hooks
 import { useMemo } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useCountries } from "../../context/CountriesContextProvider";
 
 // type
 import { type Details } from "../../type-data";
+
+// component
 import DetailsContainer from "./DetailsContainer";
 import PopulationAreaContainer from "./PopulationAreaContainer";
 import BorderCountry from "./BorderCountry";
@@ -35,44 +37,48 @@ export default function Country() {
     const details: Details[] = [
       {
         id: 1,
-        title: "capital",
+        title: "Capital",
         value: capital ? capital : "-",
       },
       {
         id: 2,
-        title: "subregion",
+        title: "Subregion",
         value: subregion,
       },
       {
         id: 3,
-        title: "languages",
+        title: "Languages",
         value: languages.map((c) => c.name).join(", "),
       },
       {
         id: 4,
-        title: "currencies",
+        title: "Currencies",
         value: currencies ? currencies.map((c) => c.name).join(", ") : "-",
       },
       {
         id: 5,
-        title: "continents",
+        title: "Continents",
         value: region,
       },
     ];
 
     return (
-      <main className="lg:relative-style w-full md:w-4/5 lg:w-1/2">
+      <main className="lg:relative-style w-full shadow-md md:w-4/5 lg:w-[70%] lg:shadow-black/20 xl:w-1/2">
         <section className="gap-base relative -top-6 flex flex-col md:-top-8 md:gap-8">
           <div className="w-1/2 max-w-75 self-center overflow-hidden rounded-lg">
             <img
-              src={flags.png === "" ? flags.png : flags.svg}
+              src={
+                name === "Afghanistan"
+                  ? "https://wallpapercave.com/wp/wp4056551.jpg"
+                  : flags.png
+              }
               alt={`${name} flag`}
             />
           </div>
 
           <article className="self-center text-center">
-            <h1 className="text-semibold-1">{name}</h1>
-            <p>Republic of {name}</p>
+            <h1 className="text-semibold-2">{name}</h1>
+            <p className="text-medium-1">Republic of {name}</p>
           </article>
 
           <div className="gap-base px-sm flex flex-col justify-center sm:flex-row">
@@ -87,12 +93,12 @@ export default function Country() {
             />
           </div>
 
-          <div className="divide-secondary border-y-secondary *:p-sm flex flex-col divide-y border-y">
+          <div className="divide-secondary text-medium-1 border-y-secondary *:p-sm flex flex-col divide-y border-y">
             {details.map((d) => (
               <DetailsContainer key={d.id} details={d} />
             ))}
           </div>
-          {borders ? (
+          {borders && (
             <div className="px-sm gap-sm flex flex-col">
               <h2 className="text-medium-0.875">Neighboring Countries</h2>
 
@@ -100,20 +106,13 @@ export default function Country() {
                 {countries
                   .filter((c) => borders.some((b) => b === c.alpha3Code))
                   .map((country) => (
-                    <Link
-                      to={`/country/${country.numericCode}?name=${country.name}`}
+                    <BorderCountry
                       key={country.numericCode}
-                      aria-label={`Click to show ${country.name} details`}
-                      className="p-sm hover:bg-secondary w-25 rounded-lg transition-colors"
-                      onClick={() => scrollTo(0, 0)}
-                    >
-                      <BorderCountry borderCountry={country} />
-                    </Link>
+                      borderCountry={country}
+                    />
                   ))}
               </div>
             </div>
-          ) : (
-            <></>
           )}
         </section>
       </main>
