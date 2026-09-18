@@ -75,7 +75,7 @@ export default function CountriesContextProvider({
       setCountries(respond);
     } catch (error) {
       console.error(error);
-      return [];
+      setCountries([]);
     }
   }
 
