@@ -74,6 +74,7 @@ export default function CountriesContextProvider({
 
       setCountries(respond);
     } catch (error) {
+      return [];
       console.error(error);
     }
   }
@@ -112,9 +113,6 @@ export default function CountriesContextProvider({
           : Number(b.area) - Number(a.area),
       );
   }, [filter, countries]);
-
-  console.log(countries.map((c) => c.flag));
-  console.log(countries.map((c) => c.flags));
 
   return (
     <countriesContext.Provider

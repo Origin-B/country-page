@@ -10,6 +10,7 @@ import { type Details } from "../../type-data";
 import DetailsContainer from "./DetailsContainer";
 import PopulationAreaContainer from "./PopulationAreaContainer";
 import BorderCountry from "./BorderCountry";
+import ImgContainer from "../shared/ImgContainer";
 
 export default function Country() {
   const { id } = useParams();
@@ -65,16 +66,11 @@ export default function Country() {
     return (
       <main className="lg:relative-style w-full shadow-md md:w-4/5 lg:w-[70%] lg:shadow-black/20 xl:w-1/2">
         <section className="gap-base relative -top-6 flex flex-col md:-top-8 md:gap-8">
-          <div className="w-1/2 max-w-75 self-center overflow-hidden rounded-lg">
-            <img
-              src={
-                name === "Afghanistan"
-                  ? "https://wallpapercave.com/wp/wp4056551.jpg"
-                  : flags.png
-              }
-              alt={`${name} flag`}
-            />
-          </div>
+          <ImgContainer
+            className="w-1/2 max-w-75 self-center overflow-hidden rounded-lg"
+            name={name}
+            png={flags.png}
+          />
 
           <article className="self-center text-center">
             <h1 className="text-semibold-2">{name}</h1>

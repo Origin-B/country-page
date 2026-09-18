@@ -12,8 +12,6 @@ import FilterParagraph from "./FilterParagraph";
 import { useState } from "react";
 import { useCountries } from "../../../context/CountriesContextProvider";
 
-// TODO: Position Sticky not work fix it
-
 export default function FilterFrom() {
   const [active, setActive] = useState(false);
 
