@@ -7,7 +7,7 @@
 
 <div align="center">
   <h3>
-    <a href="{https://your-demo-link.your-domain}">
+    <a href="https://clever-rolypoly-e9e41a.netlify.app/">
       Demo
     </a>
     <span> | </span>
@@ -79,5 +79,5 @@ This application/site was created as a submission to a [DevChallenges](https://d
 
 ## Author
 
-- Website [your-website.com](https://{your-web-site-link})
+- Website [your-website.com](https://clever-rolypoly-e9e41a.netlify.app/)
 - GitHub [@Origin-B](https://github.com/Origin-B)
