@@ -10,7 +10,7 @@ export default function SearchFilter() {
   const totalResults = filteredCountries.length;
 
   return (
-    <div className="gap-sm flex flex-wrap items-center justify-between *:w-full *:md:w-fit lg:col-span-3">
+    <div className="gap-sm flex flex-wrap items-center justify-between *:w-full *:md:w-fit">
       <p className="text-medium-1">Found {totalResults} countries</p>
 
       <div className="bg-p-rounded has-focus:outline-skeleton gap-2xs flex-row-items-center has-focus:outline-1">

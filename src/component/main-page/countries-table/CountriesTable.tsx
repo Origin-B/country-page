@@ -9,7 +9,7 @@ export default function CountriesTable() {
   const { filteredCountries } = useCountries();
 
   return (
-    <section className="gap-base flex flex-col lg:col-span-2">
+    <section className="gap-base flex flex-col">
       <div className="border-secondary grid-style text-bold-0.75 border-b-2 py-4">
         <span>Flag</span>
         <span>Name</span>

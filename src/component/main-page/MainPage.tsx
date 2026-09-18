@@ -4,10 +4,12 @@ import SearchFilter from "./SearchFilter";
 
 export default function MainPage() {
   return (
-    <main className="relative-style p-sm grid w-[95%] gap-[1rem_2rem] lg:grid-cols-[repeat(3,1fr)] lg:grid-rows-[auto_1fr] lg:p-8">
+    <main className="relative-style p-sm gap-base flex w-[95%] flex-col lg:p-8">
       <SearchFilter />
-      <FilterFrom />
-      <CountriesTable />
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_3fr]">
+        <FilterFrom />
+        <CountriesTable />
+      </div>
     </main>
   );
 }

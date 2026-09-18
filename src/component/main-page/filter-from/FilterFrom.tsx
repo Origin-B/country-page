@@ -12,16 +12,18 @@ import FilterParagraph from "./FilterParagraph";
 import { useState } from "react";
 import { useCountries } from "../../../context/CountriesContextProvider";
 
+// TODO: Position Sticky not work fix it
+
 export default function FilterFrom() {
   const [active, setActive] = useState(false);
 
   const { filter, handelFilter } = useCountries();
 
   return (
-    <section className="relative">
+    <section>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="gap-xs *:gap-xs sticky top-5 left-0 flex w-full flex-col *:flex *:flex-col"
+        className="gap-xs *:gap-xs sticky top-5 flex w-full flex-col *:flex *:flex-col"
       >
         <div className="focus:outline-skeleton relative">
           <FilterParagraph title="Sort by" />
